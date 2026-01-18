@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="实时天气预报 - 荆州、德阳、上海三城市天气动态展示">
+    <meta name="keywords" content="天气预报,荆州天气,德阳天气,上海天气,实时天气">
+    <title>三城天气 | 实时天气仪表板</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="title">
+                <span class="title-gradient">三城天气</span>
+                <span class="title-subtitle">实时气象监测</span>
+            </h1>
+            <div class="update-info">
+                <span class="update-icon">🔄</span>
+                <span id="lastUpdate">加载中...</span>
+            </div>
+        </header>
+
+        <main class="weather-grid">
+            <!-- Jingzhou Card -->
+            <div class="weather-card" id="jingzhou-card">
+                <div class="city-header">
+                    <h2 class="city-name">石首</h2>
+                    <span class="province">湖北荆州</span>
+                </div>
+                <div class="weather-content">
+                    <div class="loading-spinner"></div>
+                    <div class="weather-data" style="display: none;">
+                        <div class="weather-icon-container">
+                            <img class="weather-icon" src="" alt="天气图标">
+                        </div>
+                        <div class="temperature-display">
+                            <span class="temperature"></span>
+                            <span class="temp-unit">°C</span>
+                        </div>
+                        <div class="weather-description"></div>
+                        <div class="weather-details">
+                            <div class="detail-item">
+                                <span class="detail-icon">💧</span>
+                                <span class="detail-label">湿度</span>
+                                <span class="detail-value humidity"></span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon">💨</span>
+                                <span class="detail-label">风速</span>
+                                <span class="detail-value wind"></span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon">🌡️</span>
+                                <span class="detail-label">体感</span>
+                                <span class="detail-value feels-like"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Deyang Card -->
+            <div class="weather-card" id="deyang-card">
+                <div class="city-header">
+                    <h2 class="city-name">中江</h2>
+                    <span class="province">四川德阳</span>
+                </div>
+                <div class="weather-content">
+                    <div class="loading-spinner"></div>
+                    <div class="weather-data" style="display: none;">
+                        <div class="weather-icon-container">
+                            <img class="weather-icon" src="" alt="天气图标">
+                        </div>
+                        <div class="temperature-display">
+                            <span class="temperature"></span>
+                            <span class="temp-unit">°C</span>
+                        </div>
+                        <div class="weather-description"></div>
+                        <div class="weather-details">
+                            <div class="detail-item">
+                                <span class="detail-icon">💧</span>
+                                <span class="detail-label">湿度</span>
+                                <span class="detail-value humidity"></span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon">💨</span>
+                                <span class="detail-label">风速</span>
+                                <span class="detail-value wind"></span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon">🌡️</span>
+                                <span class="detail-label">体感</span>
+                                <span class="detail-value feels-like"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shanghai Card -->
+            <div class="weather-card" id="shanghai-card">
+                <div class="city-header">
+                    <h2 class="city-name">周浦</h2>
+                    <span class="province">上海</span>
+                </div>
+                <div class="weather-content">
+                    <div class="loading-spinner"></div>
+                    <div class="weather-data" style="display: none;">
+                        <div class="weather-icon-container">
+                            <img class="weather-icon" src="" alt="天气图标">
+                        </div>
+                        <div class="temperature-display">
+                            <span class="temperature"></span>
+                            <span class="temp-unit">°C</span>
+                        </div>
+                        <div class="weather-description"></div>
+                        <div class="weather-details">
+                            <div class="detail-item">
+                                <span class="detail-icon">💧</span>
+                                <span class="detail-label">湿度</span>
+                                <span class="detail-value humidity"></span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon">💨</span>
+                                <span class="detail-label">风速</span>
+                                <span class="detail-value wind"></span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-icon">🌡️</span>
+                                <span class="detail-label">体感</span>
+                                <span class="detail-value feels-like"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>数据来源：OpenWeatherMap | 每5分钟自动更新</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
