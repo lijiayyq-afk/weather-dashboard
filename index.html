@@ -26,121 +26,35 @@
             </div>
         </header>
 
-        <main class="weather-grid">
-            <!-- Jingzhou Card -->
-            <div class="weather-card" id="jingzhou-card">
-                <div class="city-header">
-                    <h2 class="city-name">石首</h2>
-                    <span class="province">湖北荆州</span>
-                </div>
-                <div class="weather-content">
-                    <div class="loading-spinner"></div>
-                    <div class="weather-data" style="display: none;">
-                        <div class="weather-icon-container">
-                            <img class="weather-icon" src="" alt="天气图标">
-                        </div>
-                        <div class="temperature-display">
-                            <span class="temperature"></span>
-                            <span class="temp-unit">°C</span>
-                        </div>
-                        <div class="weather-description"></div>
-                        <div class="weather-details">
-                            <div class="detail-item">
-                                <span class="detail-icon">💧</span>
-                                <span class="detail-label">湿度</span>
-                                <span class="detail-value humidity"></span>
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-icon">💨</span>
-                                <span class="detail-label">风速</span>
-                                <span class="detail-value wind"></span>
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-icon">🌡️</span>
-                                <span class="detail-label">体感</span>
-                                <span class="detail-value feels-like"></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="management-controls">
+            <button id="addCityBtn" class="primary-btn">➕ 添加城市</button>
+        </div>
 
-            <!-- Deyang Card -->
-            <div class="weather-card" id="deyang-card">
-                <div class="city-header">
-                    <h2 class="city-name">中江</h2>
-                    <span class="province">四川德阳</span>
-                </div>
-                <div class="weather-content">
-                    <div class="loading-spinner"></div>
-                    <div class="weather-data" style="display: none;">
-                        <div class="weather-icon-container">
-                            <img class="weather-icon" src="" alt="天气图标">
-                        </div>
-                        <div class="temperature-display">
-                            <span class="temperature"></span>
-                            <span class="temp-unit">°C</span>
-                        </div>
-                        <div class="weather-description"></div>
-                        <div class="weather-details">
-                            <div class="detail-item">
-                                <span class="detail-icon">💧</span>
-                                <span class="detail-label">湿度</span>
-                                <span class="detail-value humidity"></span>
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-icon">💨</span>
-                                <span class="detail-label">风速</span>
-                                <span class="detail-value wind"></span>
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-icon">🌡️</span>
-                                <span class="detail-label">体感</span>
-                                <span class="detail-value feels-like"></span>
-                            </div>
-                        </div>
+        <section id="addCityForm" class="add-city-form" style="display: none;">
+            <div class="form-container">
+                <h3>添加新城市</h3>
+                <div class="form-single-group">
+                    <label for="cityQuery">输入城市名称 (如: 北京、上海、周浦)</label>
+                    <div class="input-with-button">
+                        <input type="text" id="cityQuery" placeholder="请输入中国国内城市或区域">
+                        <button id="submitCity" class="submit-btn" title="提交">搜索并添加</button>
                     </div>
                 </div>
+                <div id="searchResult" class="search-result-preview" style="display: none;">
+                    <span class="preview-label">识别结果:</span>
+                    <span id="resolvedAddress" class="preview-value"></span>
+                </div>
+                <div class="form-actions" style="margin-top: 1rem;">
+                    <button id="cancelAdd" class="cancel-btn">关闭</button>
+                </div>
+                <p id="formError" class="error-text" style="display: none;"></p>
             </div>
+        </section>
 
-            <!-- Shanghai Card -->
-            <div class="weather-card" id="shanghai-card">
-                <div class="city-header">
-                    <h2 class="city-name">周浦</h2>
-                    <span class="province">上海</span>
-                </div>
-                <div class="weather-content">
-                    <div class="loading-spinner"></div>
-                    <div class="weather-data" style="display: none;">
-                        <div class="weather-icon-container">
-                            <img class="weather-icon" src="" alt="天气图标">
-                        </div>
-                        <div class="temperature-display">
-                            <span class="temperature"></span>
-                            <span class="temp-unit">°C</span>
-                        </div>
-                        <div class="weather-description"></div>
-                        <div class="weather-details">
-                            <div class="detail-item">
-                                <span class="detail-icon">💧</span>
-                                <span class="detail-label">湿度</span>
-                                <span class="detail-value humidity"></span>
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-icon">💨</span>
-                                <span class="detail-label">风速</span>
-                                <span class="detail-value wind"></span>
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-icon">🌡️</span>
-                                <span class="detail-label">体感</span>
-                                <span class="detail-value feels-like"></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <main class="weather-grid" id="weatherGrid">
+            <!-- Dynamic cards will be injected here -->
         </main>
+
 
         <footer class="footer">
             <p>数据来源：OpenWeatherMap | 每5分钟自动更新</p>

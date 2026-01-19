@@ -6,38 +6,38 @@
     --color-success: #4ade80;
     --color-warning: #fbbf24;
     --color-danger: #f87171;
-    
+
     /* Background Colors */
     --bg-dark: #0f172a;
     --bg-card: rgba(30, 41, 59, 0.6);
     --bg-card-hover: rgba(30, 41, 59, 0.8);
     --bg-gradient-start: #1e1b4b;
     --bg-gradient-end: #312e81;
-    
+
     /* Text Colors */
     --text-primary: #f8fafc;
     --text-secondary: #cbd5e1;
     --text-muted: #94a3b8;
-    
+
     /* Spacing */
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
     --spacing-md: 1.5rem;
     --spacing-lg: 2rem;
     --spacing-xl: 3rem;
-    
+
     /* Border Radius */
     --radius-sm: 0.5rem;
     --radius-md: 1rem;
     --radius-lg: 1.5rem;
     --radius-xl: 2rem;
-    
+
     /* Shadows */
     --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
     --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.2);
     --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.3);
     --shadow-glow: 0 0 40px rgba(102, 126, 234, 0.3);
-    
+
     /* Transitions */
     --transition-fast: 0.2s ease;
     --transition-normal: 0.3s ease;
@@ -74,8 +74,13 @@ body::before {
 }
 
 @keyframes rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .container {
@@ -97,6 +102,7 @@ body::before {
         opacity: 0;
         transform: translateY(-30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -123,8 +129,15 @@ body::before {
 }
 
 @keyframes gradientShift {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
+
+    0%,
+    100% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
 }
 
 .title-subtitle {
@@ -154,8 +167,13 @@ body::before {
 }
 
 @keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 /* Weather Grid */
@@ -196,15 +214,24 @@ body::before {
     opacity: 1;
 }
 
-.weather-card:nth-child(1) { animation-delay: 0.1s; }
-.weather-card:nth-child(2) { animation-delay: 0.2s; }
-.weather-card:nth-child(3) { animation-delay: 0.3s; }
+.weather-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.weather-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.weather-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
 
 @keyframes fadeInUp {
     from {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -259,7 +286,9 @@ body::before {
 }
 
 @keyframes spinner {
-    to { transform: rotate(360deg); }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 /* Weather Data */
@@ -280,8 +309,15 @@ body::before {
 }
 
 @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
 .temperature-display {
@@ -352,61 +388,239 @@ body::before {
     font-weight: 600;
 }
 
-/* Footer */
-.footer {
-    text-align: center;
+/* Management Controls */
+.management-controls {
+    display: flex;
+    justify-content: center;
+    margin-bottom: var(--spacing-lg);
+    animation: fadeIn 0.8s ease backwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.primary-btn {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.primary-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    filter: brightness(1.1);
+}
+
+/* Add City Form */
+.add-city-form {
+    background: var(--bg-card);
+    backdrop-filter: blur(20px);
+    border-radius: var(--radius-lg);
     padding: var(--spacing-lg);
-    color: var(--text-muted);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: var(--spacing-xl);
+    animation: slideDown 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.form-container h3 {
+    margin-bottom: var(--spacing-md);
+    font-size: 1.5rem;
+    color: var(--text-primary);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
     font-size: 0.875rem;
+    color: var(--text-secondary);
 }
 
-/* Responsive Design */
+.form-group input {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.75rem;
+    border-radius: var(--radius-sm);
+    color: var(--text-primary);
+    outline: none;
+    transition: border-color var(--transition-fast);
+}
+
+.form-group input:focus {
+    border-color: var(--color-primary);
+}
+
+.form-actions {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.submit-btn {
+    background: var(--color-success);
+    color: var(--bg-dark);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.cancel-btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.submit-btn:hover,
+.cancel-btn:hover {
+    filter: brightness(1.1);
+    transform: translateY(-1px);
+}
+
+/* Add City Form Refined */
+.form-single-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.input-with-button {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.input-with-button input {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.85rem;
+    border-radius: var(--radius-sm);
+    color: var(--text-primary);
+    outline: none;
+    font-size: 1rem;
+}
+
+.search-result-preview {
+    background: rgba(102, 126, 234, 0.1);
+    border: 1px dashed var(--color-primary);
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-sm);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    animation: fadeIn 0.3s ease;
+}
+
+.preview-label {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+}
+
+.preview-value {
+    font-size: 1rem;
+    color: var(--color-success);
+    font-weight: 500;
+}
+
+/* City Management Tools inside Card */
+.city-tools {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: flex;
+    gap: 0.5rem;
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+}
+
+.weather-card:hover .city-tools {
+    opacity: 1;
+}
+
+.tool-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: var(--text-secondary);
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.tool-btn:hover {
+    background: var(--color-primary);
+    color: white;
+}
+
+.delete-btn:hover {
+    background: var(--color-danger);
+}
+
+/* Fix grid auto-fit */
+.weather-grid {
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+}
+
 @media (max-width: 768px) {
-    body {
-        padding: var(--spacing-sm);
+    .city-tools {
+        opacity: 1;
+        top: 0.5rem;
+        right: 0.5rem;
     }
-    
-    .weather-grid {
-        grid-template-columns: 1fr;
-        gap: var(--spacing-md);
-    }
-    
-    .weather-card {
-        padding: var(--spacing-md);
-    }
-    
-    .city-name {
-        font-size: 1.5rem;
-    }
-    
-    .temperature {
-        font-size: 3rem;
-    }
-    
-    .weather-details {
-        gap: var(--spacing-sm);
-    }
-}
 
-@media (max-width: 480px) {
-    .title-gradient {
-        font-size: 2rem;
-    }
-    
-    .title-subtitle {
-        font-size: 0.875rem;
-    }
-    
-    .weather-icon {
-        width: 80px;
-        height: 80px;
-    }
-    
-    .temperature {
-        font-size: 2.5rem;
-    }
-    
-    .temp-unit {
-        font-size: 1.5rem;
+    .tool-btn {
+        width: 28px;
+        height: 28px;
+        font-size: 0.75rem;
     }
 }
