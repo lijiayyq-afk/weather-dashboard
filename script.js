@@ -259,7 +259,7 @@ async function handleAddCity() {
 
     try {
         // 1. Call Geocoding API (Limit to China)
-        const geoUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${encodeURIComponent(query)},CN&limit=5&appid=${API_KEY}`;
+        const geoUrl = `https://api.openweathermap.org/geo/1.0/direct?q=${encodeURIComponent(query)},CN&limit=10&appid=${API_KEY}`;
         const geoResponse = await fetch(geoUrl);
         if (!geoResponse.ok) throw new Error('Geocoding failed');
 
@@ -271,13 +271,22 @@ async function handleAddCity() {
             return;
         }
 
-        // 2. Take the best match
-        const match = results[0];
+        // 2. Perform precise Chinese matching
+        // We prioritize results where the Chinese name (local_names.zh) exactly matches or heavily includes the query
+        let match = results.find(item =>
+            (item.local_names?.zh && (item.local_names.zh === query || query.includes(item.local_names.zh) || item.local_names.zh.includes(query)))
+        );
+
+        // Fallback to name match or the first result
+        if (!match) {
+            match = results.find(item => item.name.toLowerCase() === query.toLowerCase()) || results[0];
+        }
+
         const cityName = match.local_names?.zh || match.name;
         const state = match.state || '';
         const fullAddress = `${state} ${cityName}`.trim();
 
-        // 3. Show preview output as requested
+        // 3. Show preview output
         searchResult.style.display = 'flex';
         resolvedAddress.textContent = fullAddress;
 
